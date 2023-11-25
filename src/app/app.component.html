@@ -1,0 +1,112 @@
+<!-- Header de la página -->
+<div class="content-container mat-typography">
+  <mat-toolbar
+    class="mat-basic mat-toolbar-single-row mat-elevation-z8 color-bloque"
+    color="background"
+  >
+    <img
+      src="/celebration.ico"
+      alt="Icono"
+      width="32"
+      height="32"
+      style="margin-right: 8px"
+    />
+    Festivos en Colombia - Práctica III (Final) Desarrollo FrontEnd Curso:
+    Arquitectura del Software UdeA 2023-02
+  </mat-toolbar>
+
+  <!-- Bloque Izquierdo -->
+  <div class="flex-container">
+    <div class="left-block">
+      <br />
+      <mat-card>
+        <!-- Contenido del primer bloque izquierdo -->
+        <mat-card-content>
+          <mat-form-field>
+            <mat-label>Seleccione una fecha</mat-label>
+            <hr />
+            <input
+              class="color-bloque"
+              matInput
+              [matDatepicker]="picker"
+              [(ngModel)]="fechaSeleccionada"/>
+            <mat-hint>día/mes/año</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker">
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-content>
+          <div class="center-content">
+            <button
+              mat-raised-button
+              class="color-bloque"
+              (click)="validarFecha()">
+              Validar Fecha
+            </button>
+          </div>
+        </mat-card-content>
+        <mat-card-footer>
+          <mat-progress-bar
+            class="color-barra"
+            mode="determinate"
+            [value]="100">
+          </mat-progress-bar>
+        </mat-card-footer>
+      </mat-card>
+
+      <br />
+
+      <!-- Contenido del segundo bloque izquierdo -->
+      <mat-card>
+        <mat-card-content>
+          <div class="right-section">
+            <mat-form-field appearance="fill">
+              <mat-label>Ingrese el año a consultar:</mat-label>
+              <hr />
+              <input type="number" matInput [(ngModel)]="annio" />
+            </mat-form-field>
+            <div class="center-content">
+              <button
+                mat-raised-button
+                class="color-bloque"
+                (click)="obtenerFestivos()"
+              >
+                Obtener Festivos
+              </button>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-footer>
+          <mat-progress-bar
+            class="color-barra"
+            mode="determinate"
+            [value]="100"
+          ></mat-progress-bar>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+
+    <!-- Bloque Derecho -->
+    <br />
+    <div class="right-block">
+      <mat-card>
+        <!-- Contenido del bloque derecho -->
+        <mat-card-content>
+          <ngx-datatable
+            class="bootstrap"
+            [headerHeight]="40"
+            [footerHeight]="40"
+            [rows]="festivos"
+            [columns]="columnas"
+            [columnMode]="ColumnMode.force"
+            [limit]="7"
+            [selectionType]="SelectionType.single"
+            (activate)="onActivate($event)"
+            [rowHeight]="'auto'"
+          ></ngx-datatable>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

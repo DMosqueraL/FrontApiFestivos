@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import "../node_modules/@swimlane/ngx-datatable/themes/material.css";
+@import "../node_modules/@swimlane/ngx-datatable/themes/dark.css";
+@import "../node_modules/@swimlane/ngx-datatable/themes/bootstrap.css";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 40px;
+  padding: 50px;
+  margin-bottom: 20px;
+  font-family: 'Roboto', "Helvetica Neue", sans-serif;
+}
+
+button {
+  margin-top: 50px;
+}
+
+.color-bloque {
+  background-color: rgb(87, 6, 76);
+  color: white;
+}
+
+.color-barra .mat-progress-bar-fill::after {
+  background-color: rgba(87, 6, 76, 0.8);
+}
+
+.flex-container {
+  display: flex;
+}
+
+.left-block {
+  flex: 0 0 30%;
+  margin-right: 10px;
+}
+
+.right-block {
+  flex: 1;
+}
+
+.celebracion-column {
+  color: rgb(87, 6, 76);
+  font-weight: bold;
+}
+
+.modal-button {
+  background-color: rgb(87, 6, 76);
+  color: white;
+}
